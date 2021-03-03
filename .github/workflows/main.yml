@@ -37,6 +37,7 @@ jobs:
           key: ${{ env.SSH_KEY }}
           script: |
             cd ${{ env.DOCKER_COMPOSE_PATH }}
+            echo ${{ secrets.GIT_AUTH_TOKEN }} | docker login ghcr.io --username paerck25 --password-stdin
             sudo docker pull ghcr.io/${{ github.repository_owner }}/docker-test
             sudo docker-compose up -d
             sudo docker tag ghcr.io/${{ github.repository_owner }}/docker-test ghcr.io/${{ github.repository_owner }}/docker-test:latest
