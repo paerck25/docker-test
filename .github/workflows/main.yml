@@ -32,7 +32,7 @@ jobs:
       - name: Docker 이미지 배포
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ env.HOST_NAME }}
+          host: ${{ env.SSH_HOSTNAME }}
           username: ${{ env.SSH_USER_NAME }}
           key: ${{ env.SSH_KEY }}
           script: |
