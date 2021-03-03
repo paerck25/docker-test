@@ -37,6 +37,6 @@ jobs:
           key: ${{ env.SSH_KEY }}
           script: |
             cd ${{ env.DOCKER_COMPOSE_PATH }}
-            sudo docker pull ghcr.io/${{ github.repository_owner }}/docker-test:${{ needs.build.outputs.tag }}
-            sudo TAG=${{ needs.build.outputs.tag }} docker-compose up -d
-            sudo docker tag ghcr.io/${{ github.repository_owner }}/docker-test:${{ needs.build.outputs.tag }} ghcr.io/${{ github.repository_owner }}/docker-test:latest
+            sudo docker pull ghcr.io/${{ github.repository_owner }}/docker-test
+            sudo docker-compose up -d
+            sudo docker tag ghcr.io/${{ github.repository_owner }}/docker-test ghcr.io/${{ github.repository_owner }}/docker-test:latest
