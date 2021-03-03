@@ -1,16 +1,10 @@
 version: "3"
 services:
-  myapp:
-    image: ghcr.io/paerck25/myimage:latest
+  api:
+    image: ghcr.io/paerck25/docker-test:${TAG}
+    env_file:
+      - .env
     ports:
-      - "80:3000"
-    depends_on:
-      - db
+      - 3000:3000
     volumes:
-      - ./files:/upload
-  db:
-    image: postgres:13.2-alpine
-    environment:
-      POSTGRES_PASSWORD: "1234"
-    volumes:
-      - ./db:/var/lib/postgresql/data
+      - ./upload:/app/upload
